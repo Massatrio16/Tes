@@ -1,0 +1,52 @@
+#add for board init.rc for recovery mode
+import /init.recovery.common.rc
+
+
+service keystore2 /system/bin/keystore2 /data/misc/keystore
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymint-1-0 /system/bin/android.hardware.security.keymint@1.0-unisoc.service
+    class early_hal
+    user root
+    group root drmrpc
+seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service.trusty
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+    
+on property:vendor.sys.listener.registered=true
+    start keymint-1-0
+    start gatekeeper-1-0
+
+on property:hwservicemanager.ready=true
+   
+  
+    
+    start keymint-1-0
+    start gatekeeper-1-0
+
+on property:ro.crypto.state=unsupported
+ 
+    stop keymint-1-0
+    stop gatekeeper-1-0
+
+on property:ro.crypto.state=unencrypted
+    
+    stop keymint-1-0
+    stop gatekeeper-1-0
+
+on property:twrp.decrypt.done=true
+    
+    stop keymint-1-0
+    stop gatekeeper-1-0
+
+on boot
+
+    start health-hal-2-0
+
