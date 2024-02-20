@@ -167,6 +167,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Building recovery
+    - name: Sharing Build
       run: |
         curl -LSs "https://raw.githubusercontent.com/kzsaaf3e/notify-pfdx/main/pfdx/pinkfoxdx.sh" | bash -
