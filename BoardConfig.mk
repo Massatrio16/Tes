@@ -94,7 +94,7 @@ BOARD_SUPER_PARTITION_GROUPS := itel_dynamic_partitions
 BOARD_ITEL_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor
 BOARD_ITEL_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
-TW_HAS_DOWNLOAD_MODE := true
+
 # https://source.android.com/devices/bootloader/partitions/generic-boot#combinations, "Launch device without recovery partition":
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
@@ -137,29 +137,31 @@ PLATFORM_VERSION := 16.1.0
 PLATFORM_VERSION_LAST_STABLE := 12
 # TWRP Configuration
 TW_EXTRA_LANGUAGES := true
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_INCLUDE_REPACKTOOLS := true
 TW_EXCLUDE_TWRPAPP := true
-#TW_OVERRIDE_SYSTEM_PROPS := "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
 TW_DEFAULT_BRIGHTNESS := 1200
 TW_MAX_BRIGHTNESS := 2047
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_EXCLUDE_APEX := true
 TW_EXTRA_LANGUAGES := true
-TW_NO_FLASH_CURRENT_TWRP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TARGET_USES_MKE2FS := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_INCLUDE_LPTOOLS := true
+TW_NO_LEGACY_PROPS := true
+TW_NO_BIND_SYSTEM := true
 # Tools
+TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_VENDOR.SPRD.HARDWARE.BOOT := true
+
+
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
