@@ -172,7 +172,7 @@ RECOVERY_TOUCHSCREEN_SWAP_XY := true
 
 
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4support.so \
+    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw/android.hardware.boot@1.0-impl-1.2.so 
 
 
 
