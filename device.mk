@@ -21,19 +21,21 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl-default \
     android.hardware.health@2.0-service 
     
-TW_LOAD_VENDOR_MODULES := "goodix_fp.ko  modules.load modules.load.recovery msm_drm.ko sprd_audcp_boot.ko  fpsensor_fp.ko sprd_sensor.ko aw32257_charger.ko charger-manager.ko tran_charger.ko musb_hdrc.ko musb_sprd.ko"
+#TW_LOAD_VENDOR_MODULES := "goodix_fp.ko  modules.load modules.load.recovery msm_drm.ko sprd_audcp_boot.ko  fpsensor_fp.ko sprd_sensor.ko aw32257_charger.ko charger-manager.ko tran_charger.ko musb_hdrc.ko musb_sprd.ko"
 
  
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-1.2 \
-    android.hardware.boot@1.0-impl-1.2.recovery \
-vendor.sprd.hardware.boot@1.2
+    android.hardware.boot@1.0-impl-1.2-recovery \
+android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl-recovery \
+vendor.sprd.hardware.boot@1.2-impl \
+vendor.sprd.hardware.boot@1.2-impl-recovery
 
 PRODUCT_PACKAGES += \
-    unisoc.bootctrl.recovery \
-unisoc.bootctrl \
-bootctrl.default
+unisoc.bootctrl 
+
     
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
