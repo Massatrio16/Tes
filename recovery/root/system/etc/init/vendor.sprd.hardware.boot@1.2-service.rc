@@ -1,7 +1,7 @@
 on boot
 start vendor.sprd.boot-hal-1-2
 
-service vendor.sprd.boot-hal-1-2 /vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
+service vendor.sprd.boot-hal-1-2 /vendor/bin/vendor.sprd.hardware.boot@1.2-service
     interface vendor.sprd.hardware.boot@1.2::IBootControl default
     user root
     group root
